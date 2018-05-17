@@ -6,6 +6,83 @@ body {
 	overflow-x:hidden;
 	line-height:1.5;
 }
+.preloader {
+	background-color: #f2d432;
+	position: fixed;
+	top:0;
+	width:100%;
+	height:100%;
+	z-index: 2000;
+	opacity: 1;
+	transition: opacity 0.8s, visibility 0.8s;
+}
+.preloader.deactivated{
+	opacity:0;
+	visibility: hidden;
+}
+
+@-webkit-keyframes animate-circle {
+	from {
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		opacity: 1;
+	}
+	to {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 0;
+	}
+}
+
+@keyframes animate-circle {
+	from {
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		opacity: 1;
+	}
+	to {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 0;
+	}
+}
+
+.loader {
+	--size: 30rem;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	height: var(--size);
+	width: var(--size);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.loader > .circle {
+	--duration: 2s;
+	position: absolute;
+	height: inherit;
+	width: inherit;
+	background: #4b4b4b;
+	border-radius: 50%;
+	-webkit-animation: animate-circle var(--duration) cubic-bezier(.9,.24,.62,.79) infinite;
+	animation: animate-circle var(--duration) cubic-bezier(.9,.24,.62,.79) infinite;
+}
+
+.loader > .circle:nth-of-type(1) {
+	-webkit-animation-delay: 0;
+	animation-delay: 0;
+}
+
+.loader > .circle:nth-of-type(2) {
+	-webkit-animation-delay: calc(var(--duration) / -3);
+	animation-delay: calc(var(--duration) / -3);
+}
+
+.loader > .circle:nth-of-type(3) {
+	-webkit-animation-delay: calc(var(--duration) / -6);
+	animation-delay: calc(var(--duration) / -6);
+}
 a {
 	color:#f2d432;
 	cursor:pointer;
@@ -752,7 +829,6 @@ label {
 	text-transform:uppercase;
 	font-size:13px;
 	line-height: 1.6;
-	background-color: white;
 }
 #credits a {
 	color:inherit;
