@@ -410,6 +410,7 @@
 	<script>
 		$(".service-box").click(function() {
 			$("#gallery").addClass("active");
+			jQuery.scrollTo('#gallery', 400, {offset:-80});
 		})
 		$(".cancel").click(function() {
 			$("#gallery").removeClass("active");
