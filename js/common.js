@@ -336,6 +336,14 @@ function parallax() {
             offset: -80,
             duration: 500
         });
+        jQuery('.herotext').localScroll({
+            offset: -80,
+            duration: 500
+        });
+        jQuery('.cancel').localScroll({
+            offset: -80,
+            duration: 200
+        });
 
         /*  Active Menu
         ================================================== */
