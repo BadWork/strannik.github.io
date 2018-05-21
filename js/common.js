@@ -247,7 +247,7 @@ http://www.gnu.org/licenses/gpl.html
         var firstTop;
         var paddingTop = 0;
 
-        //get the starting position of each element to have parallax applied to it	
+        //get the starting position of each element to have parallax applied to it  
         function update() {
 
             $this.each(function() {
@@ -316,73 +316,57 @@ function parallax() {
 }
 
 
-	jQuery(document).ready(function($){
+    jQuery(document).ready(function($){
 
-		/*	Parallax
-		================================================== */
+        /*  Parallax
+        ================================================== */
 
-		$(window).on('scroll', function(e) {
-			parallax();
-		});
+        $(window).on('scroll', function(e) {
+            parallax();
+        });
 
-		/*	Wow Anim
-		================================================== */		
-		new WOW().init();	
+        /*  Wow Anim
+        ================================================== */       
+        new WOW().init();   
 
-		/*	Local Scroll
-		================================================== */
+        /*  Local Scroll
+        ================================================== */
 
-		jQuery('.navbar').localScroll({
-			offset: -80,
-			duration: 500
-		});
+        jQuery('.navbar').localScroll({
+            offset: -80,
+            duration: 500
+        });
 
-		/*	Active Menu
-		================================================== */
+        /*  Active Menu
+        ================================================== */
 
-		jQuery(function() {
-			var sections = jQuery('section');
-			var navigation_links = jQuery('nav a');
-			sections.waypoint({
-				handler: function(direction) {
-					var active_section;
-					active_section = jQuery(this);
-					if (direction === "up") active_section = active_section.prev();
-					var active_link = jQuery('nav a[href="#' + active_section.attr("id") + '"]');
-					navigation_links.parent().removeClass("active");
-					active_link.parent().addClass("active");
-					active_section.addClass("active-section");
-				},
-				offset: '35%'
-			});
-		});
+        jQuery(function() {
+            var sections = jQuery('section');
+            var navigation_links = jQuery('nav a');
+            sections.waypoint({
+                handler: function(direction) {
+                    var active_section;
+                    active_section = jQuery(this);
+                    if (direction === "up") active_section = active_section.prev();
+                    var active_link = jQuery('nav a[href="#' + active_section.attr("id") + '"]');
+                    navigation_links.parent().removeClass("active");
+                    active_link.parent().addClass("active");
+                    active_section.addClass("active-section");
+                },
+                offset: '35%'
+            });
+        });
 
-		/*	Gallery
-		================================================== */		
-			$('#gallery').magnificPopup({
-				delegate: 'a',
-				type: 'image',
-				tLoading: 'Loading image #%curr%...',
-				mainClass: 'mfp-img-mobile',
-				gallery: {
-					enabled: true,
-					navigateByImgClick: true,
-					preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-				},
-				image: {
-					tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-					titleSrc: function(item) {
-						return item.el.attr('title') + '<small></small>';
-					}
-				}
-			});		
+        /*  Gallery
+        ================================================== */       
+        $('.ajax-popup-link').magnificPopup({type: 'ajax'});        
 
 
-		/*	Bootstrap Carousel
-		================================================== */
+        /*  Bootstrap Carousel
+        ================================================== */
 
-		jQuery('.carousel').carousel()
+        jQuery('.carousel').carousel()
 
 
-	});
-	
+    });
+    
